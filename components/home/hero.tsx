@@ -95,14 +95,7 @@ export default function Hero() {
                   </div>
                 </a>
 
-                {/* View More Button */}
-                <a href="#features" className="block transition-transform hover:scale-105">
-                  <img
-                    src="https://res.cloudinary.com/dkvkxermy/image/upload/v1764337777/make_the_view_more_text_in_whi_dfzf8x.png"
-                    alt="View More"
-                    className="h-[80px] w-auto object-contain"
-                  />
-                </a>
+
               </div>
             </motion.div>
           </div>

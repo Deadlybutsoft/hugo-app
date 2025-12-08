@@ -73,8 +73,9 @@ const TestimonialCard = ({
   body: string
 }) => {
   return (
-    <div className="relative w-full max-w-xs overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]">
-      <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-[#D0FE17]/10 to-transparent blur-md"></div>
+    <div className="relative w-full max-w-xs overflow-hidden rounded-3xl border border-white/10 p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+      style={{ background: "linear-gradient(to right, #064e3b, #000000)" }}>
+      <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-[#D0FE17]/25 to-transparent blur-md"></div>
 
       <div className="text-white/90 leading-relaxed">{body}</div>
 

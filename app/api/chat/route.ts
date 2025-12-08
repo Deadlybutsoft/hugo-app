@@ -3,8 +3,7 @@ import { GoogleGenAI } from '@google/genai';
 export async function POST(req: Request) {
     try {
         const { messages } = await req.json();
-        const apiKey = 'AIzaSyBML7sxZPH-0SMCvfmcVnYgpbEZ1OyudGg';
-
+        const apiKey = process.env.GOOGLE_API_KEY || 'AIzaSyBML7sxZPH-0SMCvfmcVnYgpbEZ1OyudGg'; // Updated with user provided key
         const ai = new GoogleGenAI({ apiKey });
 
         // Convert messages to Gemini format
@@ -14,7 +13,7 @@ export async function POST(req: Request) {
             parts: [{ text: m.content }],
         }));
 
-        const model = 'gemini-2.0-flash-lite';
+        const model = 'gemini-2.0-flash-exp';
 
         const response = await ai.models.generateContentStream({
             model,
@@ -42,7 +41,7 @@ export async function POST(req: Request) {
         });
     } catch (error) {
         console.error('API error:', error);
-        return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+        return new Response(JSON.stringify({ error: error instanceof Error ? error.message : String(error) }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },
         });

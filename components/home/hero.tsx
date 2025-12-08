@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Sparkles } from "lucide-react"
+import HeroBackground from "./hero-background"
 
 
 export default function Hero() {
@@ -12,6 +13,10 @@ export default function Hero() {
   return (
     <>
       <section className="relative overflow-hidden min-h-screen flex flex-col">
+        {/* WebGL Shader Background */}
+        <div className="absolute inset-0 z-0">
+          <HeroBackground />
+        </div>
 
         <div className="container mx-auto px-4 py-24 sm:py-32 relative z-10 flex-1 flex flex-col">
           <div className="mx-auto max-w-4xl text-center flex-1 flex flex-col justify-center">
@@ -53,8 +58,11 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 {/* Get started button */}
                 <a href="/chat">
-                  <div className="group cursor-pointer border border-[#D0FE17] bg-white gap-2 h-[60px] flex items-center p-[10px] rounded-full">
-                    <div className="border border-border bg-primary h-[40px] rounded-full flex items-center justify-center text-primary-foreground">
+                  <div className="group relative cursor-pointer border border-[#D0FE17]/30 bg-black/20 backdrop-blur-sm gap-2 h-[60px] flex items-center p-[10px] rounded-full overflow-hidden transition-all hover:bg-black/40">
+                    <div className="absolute inset-x-0 -top-px mx-auto h-[2px] w-1/2 bg-gradient-to-r from-transparent via-[#D0FE17] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
+                    <div className="absolute inset-x-0 -bottom-px mx-auto h-[2px] w-1/2 bg-gradient-to-r from-transparent via-[#D0FE17] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
+
+                    <div className="border border-border bg-primary h-[40px] rounded-full flex items-center justify-center text-primary-foreground relative z-10">
                       <p className="font-medium tracking-tight mr-3 ml-3 flex items-center gap-2 justify-center text-base">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +83,7 @@ export default function Hero() {
                         Get started
                       </p>
                     </div>
-                    <div className="text-muted-foreground group-hover:ml-4 ease-in-out transition-all size-[24px] flex items-center justify-center rounded-full border-2 border-border">
+                    <div className="text-white/70 group-hover:text-white group-hover:ml-4 ease-in-out transition-all size-[24px] flex items-center justify-center rounded-full border-2 border-border/50 relative z-10">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"

@@ -42,7 +42,7 @@ export default function ConversationRow({ data, active, onSelect, onTogglePin, s
         </button>
       )}
 
-      <div className="pointer-events-none absolute left-[calc(100%+6px)] top-1 hidden w-64 rounded-xl border border-zinc-200 bg-white p-3 text-xs text-zinc-700 shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 md:group-hover:block">
+      <div className="pointer-events-none absolute left-[calc(100%+6px)] top-1 hidden w-64 rounded-xl border border-zinc-200 bg-white p-3 text-xs text-zinc-700 shadow-lg dark:border-zinc-800 dark:bg-black dark:text-zinc-200 md:group-hover:block">
         <div className="line-clamp-6 whitespace-pre-wrap">{data.preview}</div>
       </div>
     </div>

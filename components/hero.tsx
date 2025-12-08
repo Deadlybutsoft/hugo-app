@@ -167,13 +167,13 @@ export default function Hero() {
           transition={{ duration: 0.75, delay: 0.4 }}
         >
           <Link prefetch={false} href="/docs/introduction">
-            <Button className="bg-gradient-to-b from-rose-500 to-rose-700 text-sm text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]">
+            <Button className="bg-white text-black hover:bg-white/90 rounded-full px-8">
               Get started
             </Button>
           </Link>
           <Link prefetch={false} href="/about">
-            <Button variant={"secondary"}>
-              About <MoveRight className="ml-2 h-4 w-4" />
+            <Button className="bg-transparent border border-white text-white hover:bg-white/10 rounded-full px-8">
+              View More
             </Button>
           </Link>
         </motion.div>

@@ -71,7 +71,8 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="from-secondary/40 to-secondary/10 rounded-2xl border border-white/10 bg-gradient-to-b p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] transition-all duration-300 hover:border-white/20 cursor-pointer"
+              className="rounded-2xl border border-white/5 p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.05)_inset] transition-all duration-300 hover:border-white/10 cursor-pointer"
+              style={{ background: "linear-gradient(to right, #064e3b, #000000)" }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

@@ -51,10 +51,11 @@ export default function Sidebar({
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
+    setIsMounted(true);
+  }, []);
   const [showSearchModal, setShowSearchModal] = useState(false)
+
+  if (!isMounted) return null;
 
   if (sidebarCollapsed) {
     return (
@@ -62,7 +63,7 @@ export default function Sidebar({
         initial={{ width: 240 }}
         animate={{ width: 64 }}
         transition={{ type: "spring", stiffness: 260, damping: 28 }}
-        className="z-50 flex h-full shrink-0 flex-col border-r border-zinc-200/60 bg-white dark:border-zinc-800 dark:bg-zinc-900 shadow-lg"
+        className="z-50 flex h-full shrink-0 flex-col border-r border-zinc-200/60 bg-white dark:border-zinc-800 dark:bg-black shadow-lg"
       >
         <div className="flex items-center justify-center border-b border-zinc-200/60 py-3 dark:border-zinc-800">
           <button
@@ -128,7 +129,7 @@ export default function Sidebar({
             exit={{ x: -256 }}
             transition={{ type: "spring", stiffness: 260, damping: 28 }}
             className={cls(
-              "z-50 flex h-full w-64 shrink-0 flex-col border-r border-zinc-200/60 bg-white dark:border-zinc-800 dark:bg-zinc-900 shadow-lg",
+              "z-50 flex h-full w-64 shrink-0 flex-col border-r border-zinc-200/60 bg-white dark:border-zinc-800 dark:bg-black shadow-lg",
               "fixed inset-y-0 left-0 md:static md:translate-x-0",
             )}
           >

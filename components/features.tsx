@@ -9,6 +9,8 @@ import { motion, useInView } from "framer-motion"
 import { Suspense, useEffect, useRef, useState } from "react"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { Plus, ArrowUp } from "lucide-react"
+import chipLoaderStyles from "./ChipLoader.module.css"
 
 export default function Features() {
   const ref = useRef(null)
@@ -20,14 +22,14 @@ export default function Features() {
   const [isFeature4Hovering, setIsFeature4Hovering] = useState(false)
   const [inputValue, setInputValue] = useState("")
 
-  const [baseColor, setBaseColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
-  const [glowColor, setGlowColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
+  const [baseColor, setBaseColor] = useState<[number, number, number]>([0.816, 0.996, 0.09]) // #D0FE17 in RGB normalized
+  const [glowColor, setGlowColor] = useState<[number, number, number]>([0.816, 0.996, 0.09]) // #D0FE17 in RGB normalized
 
   const [dark, setDark] = useState<number>(theme === "dark" ? 1 : 0)
 
   useEffect(() => {
-    setBaseColor([0.906, 0.541, 0.325]) // #e78a53
-    setGlowColor([0.906, 0.541, 0.325]) // #e78a53
+    setBaseColor([0.816, 0.996, 0.09]) // #D0FE17
+    setGlowColor([0.816, 0.996, 0.09]) // #D0FE17
     setDark(theme === "dark" ? 1 : 0)
   }, [theme])
 
@@ -61,7 +63,7 @@ export default function Features() {
           <div className="grid grid-cols-12 gap-4 justify-center">
             {/* Cli */}
             <motion.div
-              className="group border-secondary/40 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-2"
+              className="group border-white/10 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-2"
               onMouseEnter={() => setIsCliHovering(true)}
               onMouseLeave={() => setIsCliHovering(false)}
               ref={ref}
@@ -69,11 +71,13 @@ export default function Features() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               whileHover={{
-                scale: 1.02,
-                borderColor: "rgba(231, 138, 83, 0.6)",
-                boxShadow: "0 0 30px rgba(231, 138, 83, 0.2)",
+                borderColor: "rgba(208, 254, 23, 0.6)",
+                boxShadow: "0 0 30px rgba(208, 254, 23, 0.2)",
               }}
-              style={{ transition: "all 0s ease-in-out" }}
+              style={{
+                background: "linear-gradient(to right, #064e3b, #000000)",
+                transition: "all 0s ease-in-out"
+              }}
             >
               <div className="flex flex-col gap-4">
                 <h3 className="text-2xl leading-none font-semibold tracking-tight">AI-Powered IP Detection</h3>
@@ -249,7 +253,7 @@ export default function Features() {
 
             {/* Global */}
             <motion.div
-              className="group border-secondary/40 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-8"
+              className="group border-white/10 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-8"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
               ref={ref}
@@ -257,11 +261,13 @@ export default function Features() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               whileHover={{
-                scale: 1.02,
-                borderColor: "rgba(231, 138, 83, 0.6)",
-                boxShadow: "0 0 30px rgba(231, 138, 83, 0.2)",
+                borderColor: "rgba(208, 254, 23, 0.6)",
+                boxShadow: "0 0 30px rgba(208, 254, 23, 0.2)",
               }}
-              style={{ transition: "all 0s ease-in-out" }}
+              style={{
+                background: "linear-gradient(to right, #064e3b, #000000)",
+                transition: "all 0s ease-in-out"
+              }}
             >
               <div className="flex flex-col gap-4">
                 <h3 className="text-2xl leading-none font-semibold tracking-tight">Blockchain IP Registration</h3>
@@ -279,7 +285,7 @@ export default function Features() {
                       scrambleSpeed={70}
                       maxIterations={20}
                       useOriginalCharsOnly={false}
-                      className="cursor-pointer bg-gradient-to-t from-[#e78a53] to-[#e78a53] bg-clip-text text-transparent"
+                      className="cursor-pointer bg-gradient-to-t from-[#D0FE17] to-[#D0FE17] bg-clip-text text-transparent"
                       isHovering={isHovering}
                       setIsHovering={setIsHovering}
                       characters="abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;':\,./<>?"
@@ -306,18 +312,20 @@ export default function Features() {
 
             {/* Smart Components */}
             <motion.div
-              className="group border-secondary/40 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-2"
+              className="group border-emerald-500/20 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border p-6 shadow-[0px_2px_0px_0px_rgba(16,185,129,0.1)_inset] transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-2"
               onMouseEnter={() => setIsFeature3Hovering(true)}
               onMouseLeave={() => setIsFeature3Hovering(false)}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: 1.0 }}
               whileHover={{
-                scale: 1.02,
-                borderColor: "rgba(231, 138, 83, 0.5)",
-                boxShadow: "0 0 30px rgba(231, 138, 83, 0.2)",
+                borderColor: "rgba(16, 185, 129, 0.4)",
+                boxShadow: "0 0 30px rgba(16, 185, 129, 0.2)",
               }}
-              style={{ transition: "all 0s ease-in-out" }}
+              style={{
+                background: "linear-gradient(to right, #064e3b, #000000)",
+                transition: "all 0s ease-in-out"
+              }}
             >
               <div className="flex flex-col gap-4">
                 <h3 className="text-2xl leading-none font-semibold tracking-tight">Conversational IP Registration</h3>
@@ -329,69 +337,25 @@ export default function Features() {
               </div>
               <div className="flex grow items-center justify-center select-none relative min-h-[300px] p-4">
                 <div className="w-full max-w-lg">
-                  <div className="relative rounded-2xl border border-white/10 bg-black/20 dark:bg-white/5 backdrop-blur-sm">
-                    <div className="p-4">
+                  <div className="flex flex-col rounded-2xl border bg-white shadow-sm dark:bg-zinc-950 transition-all duration-200 border-zinc-300 dark:border-zinc-700 p-3">
+                    <div className="flex-1 relative">
                       <textarea
-                        className="w-full min-h-[100px] bg-transparent border-none text-white placeholder:text-white/50 resize-none focus:outline-none text-base leading-relaxed"
-                        placeholder="Search the web..."
+                        className="w-full resize-none bg-transparent text-sm outline-none placeholder:text-zinc-400 px-0 py-2 min-h-[40px] text-left text-zinc-900 dark:text-zinc-100"
+                        placeholder="How can I help you today?"
+                        rows={1}
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyDown={handleKeyDown}
+                        style={{ minHeight: "20px" }}
                       />
                     </div>
-                    <div className="flex items-center justify-between px-4 pb-4">
-                      <div className="flex items-center gap-3">
-                        <button className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-white/70"
-                          >
-                            <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
-                          </svg>
-                        </button>
-                        <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#e78a53] hover:bg-[#e78a53]/90 transition-colors text-white font-medium">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                            <path d="M2 12h20"></path>
-                          </svg>
-                          Search
-                        </button>
-                      </div>
-                      <button className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="text-white/70"
-                        >
-                          <path d="m22 2-7 20-4-9-9-4Z"></path>
-                          <path d="M22 2 11 13"></path>
-                        </svg>
+                    <div className="flex items-center justify-between mt-2">
+                      <button className="inline-flex shrink-0 items-center justify-center rounded-full p-2 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-300 transition-colors">
+                        <Plus className="h-4 w-4" />
+                      </button>
+
+                      <button className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md bg-green-500 h-8 w-8 text-sm font-medium text-white shadow-sm transition hover:bg-green-600">
+                        <ArrowUp className="h-4 w-4" />
                       </button>
                     </div>
                   </div>
@@ -401,7 +365,7 @@ export default function Features() {
 
             {/* Dynamic Layouts */}
             <motion.div
-              className="group border-secondary/40 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border-2 p-6 shadow-xl transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-8"
+              className="group border-white/10 text-card-foreground relative col-span-12 flex flex-col overflow-hidden rounded-xl border p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] transition-all ease-in-out md:col-span-6 xl:col-span-6 xl:col-start-8"
               onMouseEnter={() => setIsFeature4Hovering(true)}
               onMouseLeave={() => setIsFeature4Hovering(false)}
               initial={{ opacity: 0, y: 50 }}
@@ -410,10 +374,13 @@ export default function Features() {
               whileHover={{
                 rotateY: 5,
                 rotateX: 2,
-                boxShadow: "0 20px 40px rgba(231, 138, 83, 0.3)",
-                borderColor: "rgba(231, 138, 83, 0.6)",
+                boxShadow: "0 20px 40px rgba(208, 254, 23, 0.3)",
+                borderColor: "rgba(208, 254, 23, 0.6)",
               }}
-              style={{ transition: "all 0s ease-in-out" }}
+              style={{
+                background: "linear-gradient(to bottom, #064e3b, #000000)",
+                transition: "all 0s ease-in-out"
+              }}
             >
               <div className="flex flex-col gap-4">
                 <h3 className="text-2xl leading-none font-semibold tracking-tight">Multi-Format Support</h3>
@@ -424,13 +391,68 @@ export default function Features() {
                 </div>
               </div>
               <div className="flex grow items-center justify-center select-none relative min-h-[300px] p-4">
-                <div className="relative w-full max-w-sm">
-                  <img
-                    src="/modern-grid-layout.png"
-                    alt="Dynamic Layout Example"
-                    className="w-full h-auto rounded-lg shadow-lg"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+                <div className={chipLoaderStyles['main-container']}>
+                  <div className={chipLoaderStyles.loader}>
+                    <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                      <defs>
+                        <linearGradient id="chipGradient" x1={0} y1={0} x2={0} y2={1}>
+                          <stop offset="0%" stopColor="#ffffff" />
+                          <stop offset="100%" stopColor="#e0e0e0" />
+                        </linearGradient>
+                        <linearGradient id="textGradient" x1={0} y1={0} x2={0} y2={1}>
+                          <stop offset="0%" stopColor="#333333" />
+                          <stop offset="100%" stopColor="#000000" />
+                        </linearGradient>
+                        <linearGradient id="pinGradient" x1={1} y1={0} x2={0} y2={0}>
+                          <stop offset="0%" stopColor="#bbbbbb" />
+                          <stop offset="50%" stopColor="#888888" />
+                          <stop offset="100%" stopColor="#555555" />
+                        </linearGradient>
+                      </defs>
+                      <g id="traces">
+                        <path d="M100 100 H200 V210 H326" className={chipLoaderStyles['trace-bg']} />
+                        <path d="M100 100 H200 V210 H326" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.purple}`} />
+                        <path d="M80 180 H180 V230 H326" className={chipLoaderStyles['trace-bg']} />
+                        <path d="M80 180 H180 V230 H326" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.blue}`} />
+                        <path d="M60 260 H150 V250 H326" className={chipLoaderStyles['trace-bg']} />
+                        <path d="M60 260 H150 V250 H326" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.yellow}`} />
+                        <path d="M100 350 H200 V270 H326" className={chipLoaderStyles['trace-bg']} />
+                        <path d="M100 350 H200 V270 H326" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.green}`} />
+                        <path d="M700 90 H560 V210 H474" className={chipLoaderStyles['trace-bg']} />
+                        <path d="M700 90 H560 V210 H474" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.blue}`} />
+                        <path d="M740 160 H580 V230 H474" className={chipLoaderStyles['trace-bg']} />
+                        <path d="M740 160 H580 V230 H474" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.green}`} />
+                        <path d="M720 250 H590 V250 H474" className={chipLoaderStyles['trace-bg']} />
+                        <path d="M720 250 H590 V250 H474" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.red}`} />
+                        <path d="M680 340 H570 V270 H474" className={chipLoaderStyles['trace-bg']} />
+                        <path d="M680 340 H570 V270 H474" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.yellow}`} />
+                      </g>
+                      <rect x={330} y={190} width={140} height={100} rx={20} ry={20} fill="url(#chipGradient)" stroke="#222" strokeWidth={3} filter="drop-shadow(0 0 6px rgba(0,0,0,0.8))" />
+                      <g>
+                        <rect x={322} y={205} width={8} height={10} fill="url(#pinGradient)" rx={2} />
+                        <rect x={322} y={225} width={8} height={10} fill="url(#pinGradient)" rx={2} />
+                        <rect x={322} y={245} width={8} height={10} fill="url(#pinGradient)" rx={2} />
+                        <rect x={322} y={265} width={8} height={10} fill="url(#pinGradient)" rx={2} />
+                      </g>
+                      <g>
+                        <rect x={470} y={205} width={8} height={10} fill="url(#pinGradient)" rx={2} />
+                        <rect x={470} y={225} width={8} height={10} fill="url(#pinGradient)" rx={2} />
+                        <rect x={470} y={245} width={8} height={10} fill="url(#pinGradient)" rx={2} />
+                        <rect x={470} y={265} width={8} height={10} fill="url(#pinGradient)" rx={2} />
+                      </g>
+                      <text x={400} y={240} fontFamily="Arial, sans-serif" fontSize={22} fill="url(#textGradient)" textAnchor="middle" alignmentBaseline="middle">
+                        Loading
+                      </text>
+                      <circle cx={100} cy={100} r={5} fill="black" />
+                      <circle cx={80} cy={180} r={5} fill="black" />
+                      <circle cx={60} cy={260} r={5} fill="black" />
+                      <circle cx={100} cy={350} r={5} fill="black" />
+                      <circle cx={700} cy={90} r={5} fill="black" />
+                      <circle cx={740} cy={160} r={5} fill="black" />
+                      <circle cx={720} cy={250} r={5} fill="black" />
+                      <circle cx={680} cy={340} r={5} fill="black" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </motion.div>

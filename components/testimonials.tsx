@@ -73,17 +73,17 @@ const TestimonialCard = ({
   body: string
 }) => {
   return (
-    <div className="relative w-full max-w-xs overflow-hidden rounded-3xl border border-white/10 p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
-      style={{ background: "linear-gradient(to right, #064e3b, #000000)" }}>
+    <div className="relative w-full max-w-xs overflow-hidden rounded-3xl border border-white/10 p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset,0px_20px_40px_0px_rgba(0,0,0,0.5)] hover:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset,0px_30px_60px_0px_rgba(0,0,0,0.7)] transition-all duration-300"
+      style={{ background: "#064e3b" }}>
       <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-[#D0FE17]/25 to-transparent blur-md"></div>
 
-      <div className="text-white/90 leading-relaxed">{body}</div>
+      <div className="text-white/50 leading-relaxed">{body}</div>
 
       <div className="mt-5 flex items-center gap-2">
         <img src={img || "/placeholder.svg"} alt={name} height="40" width="40" className="h-10 w-10 rounded-full" />
         <div className="flex flex-col">
-          <div className="leading-5 font-medium tracking-tight text-white">{name}</div>
-          <div className="leading-5 tracking-tight text-white/60">{username}</div>
+          <div className="leading-5 font-medium tracking-tight text-white/60">{name}</div>
+          <div className="leading-5 tracking-tight text-white/30">{username}</div>
         </div>
       </div>
     </div>

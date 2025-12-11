@@ -304,7 +304,7 @@ export default function AIAssistantUI() {
   const selected = conversations.find((c) => c.id === selectedId) || null
 
   return (
-    <div className="h-dvh w-full bg-white dark:bg-black text-zinc-900 dark:text-zinc-100">
+    <div className="h-screen w-full bg-white dark:bg-black text-zinc-900 dark:text-zinc-100 overflow-hidden">
       <div className="md:hidden sticky top-0 z-40 flex items-center gap-2 border-b border-zinc-200/60 bg-white/80 px-3 py-2 backdrop-blur dark:border-zinc-800 dark:bg-black/70">
         <div className="ml-1 flex items-center gap-2 text-sm font-semibold tracking-tight">
           <span className="inline-flex h-4 w-4 items-center justify-center">✱</span> AI Assistant
@@ -323,7 +323,7 @@ export default function AIAssistantUI() {
         </div>
       </div>
 
-      <div className="flex h-dvh w-full">
+      <div className="flex h-screen w-full">
         <Sidebar
           open={sidebarOpen}
           onClose={() => setSidebarOpen(false)}
@@ -357,7 +357,7 @@ export default function AIAssistantUI() {
         />
 
         <main
-          className="relative flex min-w-0 flex-1 flex-col overflow-hidden"
+          className="relative flex min-w-0 flex-1 flex-col overflow-hidden h-screen"
         >
           <Header createNewChat={createNewChat} sidebarCollapsed={sidebarCollapsed} setSidebarOpen={setSidebarOpen} theme={theme} setTheme={setTheme} />
           <ChatPane

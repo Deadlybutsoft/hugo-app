@@ -26,11 +26,15 @@ export function BurnIntro({ onComplete }: { onComplete: () => void }) {
             textCanvas.width = 2048
             textCanvas.height = 1024
 
-            textCtx.fillStyle = "black"
+            // Retrieve the font family from the CSS variable
+            const fontStyle = getComputedStyle(document.documentElement).getPropertyValue('--font-pixelify').trim();
+            const fontFamily = fontStyle ? fontStyle.replace(/"/g, "") : "Arial";
+
+            textCtx.fillStyle = "#D0FE17" // Green background
             textCtx.fillRect(0, 0, textCanvas.width, textCanvas.height)
 
-            textCtx.fillStyle = "white"
-            textCtx.font = "bold 320px Arial"
+            textCtx.fillStyle = "black" // Black text
+            textCtx.font = `bold 320px ${fontFamily}, Arial`
             textCtx.textAlign = "center"
             textCtx.textBaseline = "middle"
             textCtx.fillText("HUGO", textCanvas.width / 2, textCanvas.height / 2)
@@ -49,7 +53,7 @@ export function BurnIntro({ onComplete }: { onComplete: () => void }) {
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
 
-            gl.clearColor(0.0, 0.0, 0.0, 1.0)
+            gl.clearColor(0.81, 1.0, 0.09, 1.0) // Clear to #D0FE17 approx
             gl.clear(gl.COLOR_BUFFER_BIT)
         }
 
@@ -112,7 +116,7 @@ export function BurnIntro({ onComplete }: { onComplete: () => void }) {
             float paper_darkness = smoothstep(main_noise - .1, main_noise, t);
             color -= vec3(.1, .1, .1) * paper_darkness;
 
-            vec3 fire_color = fbm(6. * uv - vec2(0., .005 * u_time)) * vec3(6., 1.4, .0);
+            vec3 fire_color = fbm(6. * uv - vec2(0., .005 * u_time)) * vec3(30., 10., 2.0);
             float show_fire = smoothstep(.4, .9, fbm(10. * uv + 2. - vec2(0., .005 * u_time)));
             show_fire += smoothstep(.7, .8, fbm(.5 * uv + 5. - vec2(0., .001 * u_time)));
 

@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import buttonStyles from "./Button17.module.css"
+
+import { bebasNeue } from "@/lib/fonts"
 
 export function NewReleasePromo() {
   const [currentImage, setCurrentImage] = useState(0)
@@ -36,39 +39,12 @@ export function NewReleasePromo() {
         >
           <div
             className="relative rounded-[40px] border border-white/10 p-8 md:p-12 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
-            style={{ background: "linear-gradient(to right, #064e3b, #000000)" }}
+            style={{ background: "#064e3b" }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-              {/* Left Side - Text and Button */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-[family-name:var(--font-bricolage)]">
-                    Chat. Upload. Protect Your IP.
-                  </h2>
-                  <p className="text-xl text-white/90">
-                    Built to make ownership effortless.
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-start gap-4">
-                  <a href="/chat">
-                    <button className="bg-black text-[#D0FE17] border border-[#D0FE17] border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
-                      <span className="bg-[#D0FE17] shadow-[#D0FE17] absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]" />
-                      Get started now
-                    </button>
-                  </a>
-                  <a href="#faq">
-                    <button className="bg-black text-[#D0FE17] border border-[#D0FE17] border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
-                      <span className="bg-[#D0FE17] shadow-[#D0FE17] absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]" />
-                      FAQ
-                    </button>
-                  </a>
-                </div>
-              </div>
-
-              {/* Right Side - Image Carousel */}
-              <div className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden border border-white/10">
+              {/* Left Side - Image Carousel */}
+              <div className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden border border-white/10 order-last lg:order-first">
                 <AnimatePresence>
                   <motion.img
                     key={currentImage}
@@ -95,6 +71,36 @@ export function NewReleasePromo() {
                       aria-label={`Go to image ${index + 1}`}
                     />
                   ))}
+                </div>
+              </div>
+
+              {/* Right Side - Text and Button */}
+              <div className="space-y-8">
+                <div>
+                  <h2 className={`text-6xl md:text-8xl font-bold text-white mb-6 ${bebasNeue.className}`}>
+                    CHAT. UPLOAD. <br />
+                    PROTECT YOUR IP.
+                  </h2>
+
+                </div>
+
+
+
+                <div className="flex items-center justify-center gap-6 mt-12">
+                  <a href="/chat">
+                    <button className={buttonStyles.btn17}>
+                      <span className={buttonStyles.textContainer}>
+                        <span className={buttonStyles.text}>GET STARTED</span>
+                      </span>
+                    </button>
+                  </a>
+                  <a href="#faq">
+                    <button className={buttonStyles.btn17faq}>
+                      <span className={buttonStyles.textContainer}>
+                        <span className={buttonStyles.text}>READ FAQ</span>
+                      </span>
+                    </button>
+                  </a>
                 </div>
               </div>
 

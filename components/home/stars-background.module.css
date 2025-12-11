@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #0C1116 0%, #090a0f 100%);
+}
+
+.stars {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow:
+        937px 1056px #FFF,
+        1234px 789px #FFF,
+        567px 1234px #FFF,
+        890px 445px #FFF,
+        1456px 890px #FFF,
+        345px 1567px #FFF,
+        789px 234px #FFF,
+        1123px 678px #FFF,
+        456px 1123px #FFF,
+        1678px 456px #FFF,
+        234px 1456px #FFF,
+        678px 789px #FFF,
+        890px 1123px #FFF,
+        1234px 567px #FFF,
+        1567px 234px #FFF,
+        445px 1678px #FFF,
+        1056px 345px #FFF,
+        567px 890px #FFF,
+        789px 1567px #FFF,
+        1123px 1234px #FFF,
+        234px 789px #FFF,
+        678px 1234px #FFF,
+        1456px 567px #FFF,
+        890px 1567px #FFF,
+        1234px 234px #FFF,
+        567px 1456px #FFF,
+        1678px 789px #FFF,
+        234px 1123px #FFF,
+        678px 456px #FFF,
+        1456px 1234px #FFF,
+        890px 789px #FFF,
+        1234px 1567px #FFF,
+        567px 234px #FFF,
+        1678px 1123px #FFF,
+        234px 567px #FFF,
+        678px 1456px #FFF,
+        1456px 789px #FFF,
+        890px 1234px #FFF,
+        1567px 567px #FFF,
+        123px 1789px #FFF,
+        1789px 234px #FFF,
+        345px 1234px #FFF,
+        1234px 890px #FFF,
+        567px 234px #FFF,
+        1890px 678px #FFF,
+        234px 1567px #FFF,
+        1567px 1123px #FFF,
+        890px 345px #FFF,
+        123px 567px #FFF,
+        1678px 1234px #FFF,
+        456px 789px #FFF,
+        1234px 1456px #FFF,
+        789px 1123px #FFF,
+        234px 890px #FFF,
+        1567px 234px #FFF,
+        567px 1678px #FFF,
+        1456px 456px #FFF,
+        123px 1234px #FFF;
+    animation: animStar 50s linear infinite;
+}
+
+.stars:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow:
+        937px 1056px #FFF,
+        1234px 789px #FFF,
+        567px 1234px #FFF,
+        890px 445px #FFF,
+        1456px 890px #FFF,
+        345px 1567px #FFF,
+        789px 234px #FFF,
+        1123px 678px #FFF,
+        456px 1123px #FFF,
+        1678px 456px #FFF,
+        234px 1456px #FFF,
+        678px 789px #FFF,
+        890px 1123px #FFF,
+        1234px 567px #FFF,
+        1567px 234px #FFF,
+        445px 1678px #FFF,
+        1056px 345px #FFF,
+        567px 890px #FFF,
+        789px 1567px #FFF,
+        1123px 1234px #FFF,
+        234px 789px #FFF,
+        678px 1234px #FFF,
+        1456px 567px #FFF,
+        890px 1567px #FFF,
+        1234px 234px #FFF,
+        567px 1456px #FFF,
+        1678px 789px #FFF,
+        234px 1123px #FFF,
+        678px 456px #FFF,
+        1456px 1234px #FFF,
+        890px 789px #FFF,
+        1234px 1567px #FFF,
+        567px 234px #FFF,
+        1678px 1123px #FFF,
+        234px 567px #FFF,
+        678px 1456px #FFF,
+        1456px 789px #FFF,
+        890px 1234px #FFF,
+        1567px 567px #FFF,
+        123px 1789px #FFF,
+        1789px 234px #FFF,
+        345px 1234px #FFF,
+        1234px 890px #FFF,
+        567px 234px #FFF,
+        1890px 678px #FFF,
+        234px 1567px #FFF,
+        1567px 1123px #FFF,
+        890px 345px #FFF,
+        123px 567px #FFF,
+        1678px 1234px #FFF,
+        456px 789px #FFF,
+        1234px 1456px #FFF,
+        789px 1123px #FFF,
+        234px 890px #FFF,
+        1567px 234px #FFF,
+        567px 1678px #FFF,
+        1456px 456px #FFF,
+        123px 1234px #FFF;
+}
+
+.stars2 {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow:
+        567px 890px #FFF,
+        1234px 567px #FFF,
+        890px 1123px #FFF,
+        1567px 234px #FFF,
+        234px 1456px #FFF,
+        678px 789px #FFF,
+        1123px 1234px #FFF,
+        445px 1678px #FFF,
+        1056px 345px #FFF,
+        789px 1567px #FFF,
+        1456px 567px #FFF,
+        234px 789px #FFF,
+        678px 1234px #FFF,
+        890px 1567px #FFF,
+        1234px 234px #FFF,
+        567px 1456px #FFF,
+        1678px 789px #FFF,
+        234px 1123px #FFF,
+        678px 456px #FFF,
+        1456px 1234px #FFF,
+        345px 789px #FFF,
+        1567px 1123px #FFF,
+        890px 567px #FFF,
+        123px 1456px #FFF,
+        1789px 234px #FFF,
+        567px 1678px #FFF,
+        1234px 890px #FFF,
+        456px 1234px #FFF,
+        1678px 567px #FFF,
+        234px 1789px #FFF,
+        1456px 345px #FFF,
+        789px 1123px #FFF,
+        123px 678px #FFF,
+        1567px 1567px #FFF,
+        890px 234px #FFF,
+        567px 1456px #FFF,
+        1234px 789px #FFF;
+    animation: animStar 100s linear infinite;
+}
+
+.stars2:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow:
+        567px 890px #FFF,
+        1234px 567px #FFF,
+        890px 1123px #FFF,
+        1567px 234px #FFF,
+        234px 1456px #FFF,
+        678px 789px #FFF,
+        1123px 1234px #FFF,
+        445px 1678px #FFF,
+        1056px 345px #FFF,
+        789px 1567px #FFF,
+        1456px 567px #FFF,
+        234px 789px #FFF,
+        678px 1234px #FFF,
+        890px 1567px #FFF,
+        1234px 234px #FFF,
+        567px 1456px #FFF,
+        1678px 789px #FFF,
+        234px 1123px #FFF,
+        678px 456px #FFF,
+        1456px 1234px #FFF,
+        345px 789px #FFF,
+        1567px 1123px #FFF,
+        890px 567px #FFF,
+        123px 1456px #FFF,
+        1789px 234px #FFF,
+        567px 1678px #FFF,
+        1234px 890px #FFF,
+        456px 1234px #FFF,
+        1678px 567px #FFF,
+        234px 1789px #FFF,
+        1456px 345px #FFF,
+        789px 1123px #FFF,
+        123px 678px #FFF,
+        1567px 1567px #FFF,
+        890px 234px #FFF,
+        567px 1456px #FFF,
+        1234px 789px #FFF;
+}
+
+.stars3 {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow:
+        789px 1123px #FFF,
+        1234px 567px #FFF,
+        1567px 234px #FFF,
+        234px 1456px #FFF,
+        678px 789px #FFF,
+        567px 890px #FFF,
+        1456px 1234px #FFF,
+        890px 567px #FFF,
+        1234px 1567px #FFF,
+        234px 789px #FFF,
+        678px 1456px #FFF,
+        1123px 234px #FFF,
+        445px 1678px #FFF,
+        1056px 345px #FFF,
+        1678px 1123px #FFF,
+        345px 1123px #FFF,
+        1789px 567px #FFF,
+        123px 890px #FFF,
+        1567px 1456px #FFF,
+        567px 234px #FFF,
+        1234px 789px #FFF,
+        890px 1678px #FFF,
+        234px 1123px #FFF,
+        1456px 456px #FFF,
+        678px 1567px #FFF,
+        1123px 1234px #FFF,
+        456px 789px #FFF,
+        1678px 234px #FFF,
+        234px 1678px #FFF,
+        1567px 567px #FFF,
+        789px 1234px #FFF,
+        123px 1567px #FFF;
+    animation: animStar 150s linear infinite;
+}
+
+.stars3:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow:
+        789px 1123px #FFF,
+        1234px 567px #FFF,
+        1567px 234px #FFF,
+        234px 1456px #FFF,
+        678px 789px #FFF,
+        567px 890px #FFF,
+        1456px 1234px #FFF,
+        890px 567px #FFF,
+        1234px 1567px #FFF,
+        234px 789px #FFF,
+        678px 1456px #FFF,
+        1123px 234px #FFF,
+        445px 1678px #FFF,
+        1056px 345px #FFF,
+        1678px 1123px #FFF,
+        345px 1123px #FFF,
+        1789px 567px #FFF,
+        123px 890px #FFF,
+        1567px 1456px #FFF,
+        567px 234px #FFF,
+        1234px 789px #FFF,
+        890px 1678px #FFF,
+        234px 1123px #FFF,
+        1456px 456px #FFF,
+        678px 1567px #FFF,
+        1123px 1234px #FFF,
+        456px 789px #FFF,
+        1678px 234px #FFF,
+        234px 1678px #FFF,
+        1567px 567px #FFF,
+        789px 1234px #FFF,
+        123px 1567px #FFF;
+}
+
+.horizon {
+    position: absolute;
+    width: 180%;
+    height: 80%;
+    border-radius: 80% 20% 60% 40% / 30% 70% 50% 80%;
+    background: #D0FE17;
+    -webkit-filter: blur(30px);
+    left: 50%;
+    bottom: -25%;
+    margin-left: -90%;
+}
+
+.horizon:before {
+    content: " ";
+    position: absolute;
+    width: 85%;
+    height: 75%;
+    border-radius: 80% 20% 60% 40% / 30% 70% 50% 80%;
+    background: rgba(208, 254, 23, 0.9);
+    -webkit-filter: blur(30px);
+    opacity: 0.6;
+    margin-left: 7.5%;
+}
+
+.horizon:after {
+    content: " ";
+    position: absolute;
+    width: 40%;
+    height: 25%;
+    border-radius: 70% 30% 80% 20% / 40% 60% 70% 30%;
+    background: rgba(208, 254, 23, 0.7);
+    -webkit-filter: blur(30px);
+    opacity: 0.5;
+    margin-left: 30%;
+}
+
+.glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100% / 100%;
+    background: #215496;
+    -webkit-filter: blur(200px);
+    opacity: 0.7;
+    top: -10%;
+}
+
+.earth {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: black;
+    border-radius: 100% / 100%;
+    left: 50%;
+    bottom: -50%;
+    margin-left: -100%;
+}
+
+.earth:before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100% / 100%;
+    box-shadow: inset 0px 0px 62px 20px rgba(60, 105, 138, 0.85);
+}
+
+.earth:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100% / 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 100%);
+}
+
+.title {
+    position: absolute;
+    font-weight: 300;
+    top: 36%;
+    left: 0;
+    right: 0;
+    margin-top: -80px;
+    font-size: 130px;
+    text-align: center;
+    letter-spacing: 20px;
+    padding-left: 20px;
+    background: -webkit-linear-gradient(white, rgb(219, 221, 224), #38495a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-name: animGravity;
+    font-family: 'Lato', sans-serif;
+}
+
+.subtitle {
+    position: absolute;
+    font-weight: 300;
+    top: 70%;
+    left: 0;
+    right: 0;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 6px;
+    font-family: 'Lato', sans-serif;
+}
+
+.subtitle span {
+    color: rgb(216, 216, 216);
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.subtitle span:nth-child(1) {
+    animation-name: animDont;
+}
+
+.subtitle span:nth-child(2) {
+    animation-name: animLet;
+}
+
+.subtitle span:nth-child(3) {
+    animation-name: animGo;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+@keyframes animGravity {
+    0% {
+        transform: translateY(-26px);
+        opacity: 0;
+    }
+
+    30%,
+    80% {
+        letter-spacing: 40px;
+        padding-left: 40px;
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    92%,
+    100% {
+        letter-spacing: 35px;
+        padding-left: 35px;
+        transform: translateY(-4px);
+        opacity: 0;
+    }
+}
+
+@keyframes animDont {
+
+    0%,
+    15% {
+        transform: translateY(-26px);
+        opacity: 0;
+    }
+
+    35%,
+    80% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    92%,
+    100% {
+        transform: translateY(-4px);
+        opacity: 0;
+    }
+}
+
+@keyframes animLet {
+
+    0%,
+    25% {
+        transform: translateY(-26px);
+        opacity: 0;
+    }
+
+    45%,
+    80% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    92%,
+    100% {
+        transform: translateY(-4px);
+        opacity: 0;
+    }
+}
+
+@keyframes animGo {
+
+    0%,
+    35% {
+        transform: translateY(-26px);
+        opacity: 0;
+    }
+
+    55%,
+    80% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    92%,
+    100% {
+        transform: translateY(-4px);
+        opacity: 0;
+    }
+}

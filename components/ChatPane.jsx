@@ -5,7 +5,7 @@ import { Pencil, RefreshCw, Check, X, Square } from "lucide-react"
 import Message from "./Message"
 import Composer from "./Composer"
 import { cls, timeAgo } from "./utils"
-import bgStyles from "./ChatBackground.module.css"
+import styles from "./HugoShine.module.css"
 
 function ThinkingMessage({ onPause }) {
   return (
@@ -74,22 +74,26 @@ const ChatPane = forwardRef(function ChatPane(
   }
 
   return (
-    <div className="flex h-full min-h-0 flex-1 flex-col relative">
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className={bgStyles.container} />
-      </div>
+    <div className="flex h-screen min-h-0 flex-1 flex-col relative">
+
       <div className="flex-1 space-y-5 overflow-y-auto px-4 pt-6 pb-20 sm:px-8 z-10 max-w-3xl mx-auto w-full">
 
 
 
 
 
-        {messages.length === 0 ? null : (
+
+
+        <div className="absolute inset-0 flex flex-col items-center justify-start pt-60 h-full text-center opacity-100 pointer-events-none z-0">
+          <h1 className={`${styles.shine} text-[6rem] md:text-[9rem] font-bold tracking-tighter select-none leading-none`} style={{ fontFamily: "var(--font-pixelify)" }}>HUGO</h1>
+        </div>
+
+        {messages.length > 0 && (
           <>
             {messages.map((m) => (
-              <div key={m.id} className="space-y-2">
+              <div key={m.id} className="space-y-2 relative z-10">
                 {editingId === m.id ? (
-                  <div className={cls("rounded-2xl border p-2", "border-zinc-200 dark:border-zinc-800")}>
+                  <div className={cls("rounded-2xl border p-2", "border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black")}>
                     <textarea
                       value={draft}
                       onChange={(e) => setDraft(e.target.value)}

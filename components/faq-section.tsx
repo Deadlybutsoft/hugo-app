@@ -32,6 +32,11 @@ export function FAQSection() {
       answer:
         "On Story Protocol, using decentralized, verifiable proof of ownership.",
     },
+    {
+      question: "Can I use this platform for commercial projects?",
+      answer:
+        "Yes, our platform supports both personal and commercial projects. You can register your intellectual property and use it for business purposes while maintaining full ownership rights.",
+    },
   ]
 
   return (
@@ -71,23 +76,16 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="rounded-2xl border border-white/5 p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.05)_inset] transition-all duration-300 hover:border-white/10 cursor-pointer"
-              style={{ background: "linear-gradient(to right, #064e3b, #000000)" }}
+              className="rounded-2xl border border-white/5 p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.05)_inset] transition-all duration-300 hover:border-white/10"
+              style={{ background: "#064e3b" }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => toggleItem(index)}
+              onMouseEnter={() => toggleItem(index)}
+              onMouseLeave={() => toggleItem(index)}
               role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault()
-                  toggleItem(index)
-                }
-              }}
               {...(index === faqs.length - 1 && { "data-faq": faq.question })}
             >
               <div className="flex items-start justify-between">

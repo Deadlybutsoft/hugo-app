@@ -4,36 +4,10 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 
-import { Poppins, Bricolage_Grotesque, Pixelify_Sans, Teko } from "next/font/google"
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
-})
-
-const pixelify = Pixelify_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-pixelify",
-})
-
-const teko = Teko({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-teko",
-})
-
-const bricolageGrotesque = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-bricolage",
-})
-
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Hugo App",
+  description: "Created with Hugo",
+  generator: "hugo.app",
 }
 
 import { ThemeProvider } from "@/components/theme-provider"
@@ -51,14 +25,14 @@ html {
   font-family: ${GeistSans.style.fontFamily};
   --font-sans: ${GeistSans.variable};
   --font-mono: ${GeistMono.variable};
-  --font-poppins: ${poppins.variable};
-  --font-bricolage: ${bricolageGrotesque.style.fontFamily};
-  --font-pixelify: ${pixelify.style.fontFamily};
-  --font-teko: ${teko.style.fontFamily};
 }
         `}</style>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Pixelify+Sans:wght@400;500;600;700&family=Teko:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className={poppins.variable}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>

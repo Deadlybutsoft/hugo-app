@@ -1,0 +1,59 @@
+.cards {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.5s;
+}
+
+.card:hover {
+    transform: translateZ(10px);
+}
+
+/* Left column cards - no tilt */
+.cards:has(.card):nth-child(odd) .card:hover {
+    transform: translateZ(10px);
+}
+
+/* Right column cards - no tilt */
+.cards:has(.card):nth-child(even) .card:hover {
+    transform: translateZ(10px);
+}
+
+.cardContent {
+    transform: translateZ(0);
+    transition: transform 0.5s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover .cardContent {
+    transform: translateZ(0);
+}
+
+/* No rotation for left column cards */
+.cards:has(.card):nth-child(odd) .card:hover .cardContent {
+    transform: translateZ(0);
+}
+
+/* No rotation for right column cards */
+.cards:has(.card):nth-child(even) .card:hover .cardContent {
+    transform: translateZ(0);
+}
+
+/* Disable tilt for specific cards */
+.noTilt:hover {
+    transform: none !important;
+}
+
+.noTilt:hover .cardContent {
+    transform: none !important;
+}

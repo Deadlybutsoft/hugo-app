@@ -230,6 +230,29 @@ body {
   }
 }
 
+/* Added automatic hue rotation animation for hero background */
+@keyframes hue-rotate {
+  0% {
+    filter: hue-rotate(0deg) saturate(1.1) brightness(1.05) contrast(1.1);
+  }
+
+  25% {
+    filter: hue-rotate(90deg) saturate(1.2) brightness(1.1) contrast(1.15);
+  }
+
+  50% {
+    filter: hue-rotate(180deg) saturate(1.1) brightness(1.05) contrast(1.1);
+  }
+
+  75% {
+    filter: hue-rotate(270deg) saturate(1.2) brightness(1.1) contrast(1.15);
+  }
+
+  100% {
+    filter: hue-rotate(360deg) saturate(1.1) brightness(1.05) contrast(1.1);
+  }
+}
+
 .animate-marquee {
   animation: marquee var(--duration) linear infinite;
 }
@@ -240,6 +263,10 @@ body {
 
 .animate-shiny-text {
   animation: shiny-text 3s ease-in-out infinite;
+}
+
+.animate-hue-rotate {
+  animation: hue-rotate 8s ease-in-out infinite;
 }
 
 .scrollbar-hide::-webkit-scrollbar {

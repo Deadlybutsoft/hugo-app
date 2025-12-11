@@ -14,7 +14,7 @@ export default function Header({ createNewChat, sidebarCollapsed, setSidebarOpen
   }, []);
 
   return (
-    <div className="sticky top-0 z-30 flex items-center gap-2 border-b border-zinc-200/60 bg-white/80 px-4 py-3 backdrop-blur dark:border-zinc-800 dark:bg-black/70">
+    <div className="sticky top-0 z-[10000] flex items-center gap-2 border-b border-zinc-200/60 bg-white/80 px-4 py-3 backdrop-blur dark:border-zinc-800 dark:bg-black/70">
       {isMounted && sidebarCollapsed && (
         <button
           onClick={() => setSidebarOpen(true)}

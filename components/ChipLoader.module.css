@@ -12,13 +12,13 @@
 }
 
 .trace-bg {
-    stroke: #333;
-    stroke-width: 4;
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-width: 8;
     fill: none;
 }
 
 .trace-flow {
-    stroke-width: 4;
+    stroke-width: 8;
     fill: none;
     stroke-dasharray: 40 400;
     stroke-dashoffset: 438;

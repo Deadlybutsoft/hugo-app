@@ -9,6 +9,7 @@ import {
   Clock,
   Settings,
   Asterisk,
+  SquarePen,
 } from "lucide-react"
 import SidebarSection from "./SidebarSection"
 import ConversationRow from "./ConversationRow"
@@ -63,12 +64,12 @@ export default function Sidebar({
         initial={{ width: 240 }}
         animate={{ width: 64 }}
         transition={{ type: "spring", stiffness: 260, damping: 28 }}
-        className="z-50 flex h-full shrink-0 flex-col border-r border-zinc-200/60 bg-white dark:border-zinc-800 dark:bg-black shadow-lg"
+        className="z-50 flex h-screen shrink-0 flex-col border-r border-zinc-200/60 bg-white dark:border-zinc-800 dark:bg-black shadow-lg"
       >
         <div className="flex items-center justify-center border-b border-zinc-200/60 py-3 dark:border-zinc-800">
           <button
             onClick={() => setSidebarCollapsed(false)}
-            className="rounded-xl p-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
+            className="rounded-xl px-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
             aria-label="Open sidebar"
             title="Open sidebar"
           >
@@ -76,17 +77,14 @@ export default function Sidebar({
           </button>
         </div>
 
-
-        <div className="flex flex-col items-center gap-4 pt-4">
+        <div className="flex flex-col items-center gap-4 pt-4 flex-1">
           <button
             onClick={createNewChat}
             className="rounded-xl p-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
             title="New Chat"
           >
-            <Plus className="h-5 w-5" />
+            <SquarePen className="h-5 w-5" />
           </button>
-
-
 
           <div className="mt-auto mb-4">
             <SettingsPopover>
@@ -129,19 +127,19 @@ export default function Sidebar({
             exit={{ x: -256 }}
             transition={{ type: "spring", stiffness: 260, damping: 28 }}
             className={cls(
-              "z-50 flex h-full w-64 shrink-0 flex-col border-r border-zinc-200/60 bg-white dark:border-zinc-800 dark:bg-black shadow-lg",
+              "z-50 flex h-screen w-64 shrink-0 flex-col border-r border-zinc-200/60 bg-white dark:border-zinc-800 dark:bg-black shadow-lg",
               "fixed inset-y-0 left-0 md:static md:translate-x-0",
             )}
           >
             <div className="flex items-center gap-2 border-b border-zinc-200/60 px-3 py-3 dark:border-zinc-800">
               <div className="flex items-center gap-2">
-                <div className="text-xl font-bold tracking-tight">Hugo</div>
+                <div className="text-xl font-bold tracking-tight ml-4">Hugo</div>
 
               </div>
               <div className="ml-auto flex items-center gap-1">
                 <button
                   onClick={() => setSidebarCollapsed(true)}
-                  className="hidden md:block rounded-xl p-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
+                  className="hidden md:block rounded-xl px-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
                   aria-label="Close sidebar"
                   title="Close sidebar"
                 >
@@ -150,7 +148,7 @@ export default function Sidebar({
 
                 <button
                   onClick={onClose}
-                  className="md:hidden rounded-xl p-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
+                  className="md:hidden rounded-xl px-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
                   aria-label="Close sidebar"
                 >
                   <PanelLeftClose className="h-5 w-5" />
@@ -160,19 +158,22 @@ export default function Sidebar({
 
 
 
-            <div className="px-3 pt-2">
+            <div className="px-3 pt-3">
               <button
                 onClick={createNewChat}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-white dark:text-zinc-900"
+                className="flex w-full items-center justify-start gap-2 rounded-lg px-2 py-2 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-zinc-100 dark:hover:bg-zinc-800"
                 title="New Chat"
               >
-                <Plus className="h-4 w-4" /> New Chat
+                <div className="flex items-center justify-center">
+                  <SquarePen className="h-5 w-5 mr-3" />
+                  <span className="text-md">New Chat</span>
+                </div>
               </button>
             </div>
 
 
 
-            <nav className="mt-4 flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto px-2 pb-4 scrollbar-hide">
+            <nav className="mt-4 flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto px-2 pb-4 scrollbar-hide pl-4">
 
 
               <SidebarSection
@@ -201,7 +202,7 @@ export default function Sidebar({
             </nav>
 
             <div className="mt-auto border-t border-zinc-200/60 px-3 py-3 dark:border-zinc-800">
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-start">
                 <SettingsPopover>
                   <button className="inline-flex items-center gap-2 rounded-lg px-4 py-3 text-base hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800">
                     <Settings className="h-5 w-5" /> Settings

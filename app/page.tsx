@@ -12,22 +12,15 @@ import { MovingTextBoard } from "@/components/moving-text-board"
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showBurnIntro, setShowBurnIntro] = useState(false)
   const [introComplete, setIntroComplete] = useState(false)
 
   useEffect(() => {
-    // Check if we've already shown the intro in this session
-    // We use localStorage to ensure it only shows once per user/device
-    // If you want it to show once per session (closing tab resets), use sessionStorage
-    const hasShownIntro = localStorage.getItem("burnIntroShown_v4")
-    if (!hasShownIntro) {
-      setShowBurnIntro(true)
-      // Mark as shown immediately to prevent it from showing again on refresh
-      localStorage.setItem("burnIntroShown_v4", "true")
-    } else {
-      setIntroComplete(true)
-    }
+    // Always show the intro when the user enters the site
+    setShowBurnIntro(true)
   }, [])
 
   useEffect(() => {
@@ -38,12 +31,24 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100)
+      const currentScrollY = window.scrollY
+
+      // Handle isScrolled for width/padding changes
+      setIsScrolled(currentScrollY > 100)
+
+      // Handle visibility - hide on scroll down (if scrolled past 10), show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHeaderVisible(false) // Scrolling down & past top
+      } else {
+        setIsHeaderVisible(true) // Scrolling up or at top
+      }
+
+      setLastScrollY(currentScrollY)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   const handleMobileNavClick = (elementId: string) => {
     setIsMobileMenuOpen(false)
@@ -84,8 +89,8 @@ export default function Home() {
 
         {/* Desktop Header */}
         <header
-          className={`sticky top-4 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full bg-background/80 md:flex backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 ${isScrolled ? "max-w-3xl px-2" : "max-w-5xl px-4"
-            } py-2`}
+          className={`sticky top-4 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full bg-black md:flex backdrop-blur-sm border border-gray-500/20 shadow-lg transition-all duration-300 ${isScrolled ? "max-w-3xl px-2" : "max-w-5xl px-4"
+            } py-2 ${isHeaderVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0 pointer-events-none"}`}
           style={{
             willChange: "transform",
             transform: "translateZ(0)",
@@ -96,7 +101,7 @@ export default function Home() {
           <a
             className={`z-50 flex items-center justify-center gap-2 transition-all duration-300 ${isScrolled ? "ml-4" : ""
               }`}
-            href="https://v0.app"
+            href="https://hugo.app"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -175,10 +180,10 @@ export default function Home() {
         </header>
 
         {/* Mobile Header */}
-        <header className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg md:hidden px-4 py-3">
+        <header className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-full bg-black backdrop-blur-sm border border-gray-500/20 shadow-lg md:hidden px-4 py-3">
           <a
             className="flex items-center justify-center gap-2"
-            href="https://v0.app"
+            href="https://hugo.app"
             target="_blank"
             rel="noopener noreferrer"
           >

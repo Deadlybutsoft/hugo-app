@@ -89,7 +89,7 @@ export default function Home() {
 
         {/* Desktop Header */}
         <header
-          className={`sticky top-4 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full bg-black md:flex backdrop-blur-sm border border-gray-500/20 shadow-lg transition-all duration-300 ${isScrolled ? "max-w-3xl px-2" : "max-w-5xl px-4"
+          className={`fixed top-4 left-0 right-0 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full bg-black/50 md:flex backdrop-blur-md border border-white/10 shadow-lg transition-all duration-300 ${isScrolled ? "max-w-3xl px-2" : "max-w-5xl px-4"
             } py-2 ${isHeaderVisible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0 pointer-events-none"}`}
           style={{
             willChange: "transform",
@@ -180,7 +180,7 @@ export default function Home() {
         </header>
 
         {/* Mobile Header */}
-        <header className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-full bg-black backdrop-blur-sm border border-gray-500/20 shadow-lg md:hidden px-4 py-3">
+        <header className="fixed top-4 left-4 right-4 z-[9999] flex w-auto flex-row items-center justify-between rounded-full bg-black/50 backdrop-blur-md border border-white/10 shadow-lg md:hidden px-4 py-3">
           <a
             className="flex items-center justify-center gap-2"
             href="https://hugo.app"

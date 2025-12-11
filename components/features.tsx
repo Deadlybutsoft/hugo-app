@@ -9,7 +9,7 @@ import { motion, useInView } from "framer-motion"
 import { Suspense, useEffect, useRef, useState } from "react"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { Plus, ArrowUp, Music, Video, Image as ImageIcon, FileText, Bot, Clock, Code, Mic, Palette } from "lucide-react"
+import { Plus, ArrowUp, Music, Video, Image as ImageIcon, FileText, Bot, Clock, Code, Mic, Palette, ShieldCheck } from "lucide-react"
 import chipLoaderStyles from "./ChipLoader.module.css"
 import sendBtnStyles from "./SendButton.module.css"
 import styles from "./Features3D.module.css"
@@ -192,12 +192,9 @@ export default function Features() {
               </div>
             </motion.div>
 
-            {/* Multi-Format Support */}
-            <motion.div
+            {/* Security */}
+            <div
               className="col-span-12 md:col-span-4 h-full mt-8"
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.5, delay: 1.1 }}
             >
               <div className={styles.cards}>
                 <div
@@ -215,82 +212,26 @@ export default function Features() {
                 >
                   <div className={styles.cardContent}>
                     <div className="flex flex-col gap-4 items-center text-center">
-                      <h3 className="text-2xl leading-none font-semibold tracking-tight">Multi-Format Support</h3>
+                      <h3 className="text-2xl leading-none font-semibold tracking-tight">Industry Leading Security</h3>
                       <div className="text-md text-muted-foreground flex flex-col gap-2 text-sm items-center">
                         <p className="max-w-[460px]">
-                          Upload nearly anything: text, images, code snippets, audio, lyrics, or mixed media. Our AI handles it all seamlessly.
+                          Your assets are protected by advanced encryption and immutable blockchain technology, ensuring complete safety.
                         </p>
                       </div>
                     </div>
                     <div className="flex grow items-center justify-center select-none relative min-h-[60px] p-2">
-                      <div className={chipLoaderStyles['main-container']}>
-                        <div className={chipLoaderStyles.loader}>
-                          <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                            <defs>
-                              <linearGradient id="chipGradient" x1={0} y1={0} x2={0} y2={1}>
-                                <stop offset="0%" stopColor="#ffffff" />
-                                <stop offset="100%" stopColor="#e0e0e0" />
-                              </linearGradient>
-                              <linearGradient id="textGradient" x1={0} y1={0} x2={0} y2={1}>
-                                <stop offset="0%" stopColor="#333333" />
-                                <stop offset="100%" stopColor="#000000" />
-                              </linearGradient>
-                              <linearGradient id="pinGradient" x1={1} y1={0} x2={0} y2={0}>
-                                <stop offset="0%" stopColor="#bbbbbb" />
-                                <stop offset="50%" stopColor="#888888" />
-                                <stop offset="100%" stopColor="#555555" />
-                              </linearGradient>
-                            </defs>
-                            <g id="traces">
-                              <path d="M100 100 H200 V210 H326" className={chipLoaderStyles['trace-bg']} />
-                              <path d="M100 100 H200 V210 H326" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.purple}`} />
-                              <path d="M80 180 H180 V230 H326" className={chipLoaderStyles['trace-bg']} />
-                              <path d="M80 180 H180 V230 H326" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.blue}`} />
-                              <path d="M60 260 H150 V250 H326" className={chipLoaderStyles['trace-bg']} />
-                              <path d="M60 260 H150 V250 H326" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.yellow}`} />
-                              <path d="M100 350 H200 V270 H326" className={chipLoaderStyles['trace-bg']} />
-                              <path d="M100 350 H200 V270 H326" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.green}`} />
-                              <path d="M700 90 H560 V210 H474" className={chipLoaderStyles['trace-bg']} />
-                              <path d="M700 90 H560 V210 H474" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.blue}`} />
-                              <path d="M740 160 H580 V230 H474" className={chipLoaderStyles['trace-bg']} />
-                              <path d="M740 160 H580 V230 H474" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.green}`} />
-                              <path d="M720 250 H590 V250 H474" className={chipLoaderStyles['trace-bg']} />
-                              <path d="M720 250 H590 V250 H474" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.red}`} />
-                              <path d="M680 340 H570 V270 H474" className={chipLoaderStyles['trace-bg']} />
-                              <path d="M680 340 H570 V270 H474" className={`${chipLoaderStyles['trace-flow']} ${chipLoaderStyles.yellow}`} />
-                            </g>
-                            <rect x={330} y={190} width={140} height={100} rx={20} ry={20} fill="url(#chipGradient)" stroke="#222" strokeWidth={3} filter="drop-shadow(0 0 6px rgba(0,0,0,0.8))" />
-                            <g>
-                              <rect x={322} y={205} width={8} height={10} fill="url(#pinGradient)" rx={2} />
-                              <rect x={322} y={225} width={8} height={10} fill="url(#pinGradient)" rx={2} />
-                              <rect x={322} y={245} width={8} height={10} fill="url(#pinGradient)" rx={2} />
-                              <rect x={322} y={265} width={8} height={10} fill="url(#pinGradient)" rx={2} />
-                            </g>
-                            <g>
-                              <rect x={470} y={205} width={8} height={10} fill="url(#pinGradient)" rx={2} />
-                              <rect x={470} y={225} width={8} height={10} fill="url(#pinGradient)" rx={2} />
-                              <rect x={470} y={245} width={8} height={10} fill="url(#pinGradient)" rx={2} />
-                              <rect x={470} y={265} width={8} height={10} fill="url(#pinGradient)" rx={2} />
-                            </g>
-                            <text x={400} y={240} fontFamily="Arial, sans-serif" fontSize={22} fill="url(#textGradient)" textAnchor="middle" alignmentBaseline="middle">
-                              STORY
-                            </text>
-                            <circle cx={100} cy={100} r={5} fill="#ffffff" />
-                            <circle cx={80} cy={180} r={5} fill="#ffffff" />
-                            <circle cx={60} cy={260} r={5} fill="#ffffff" />
-                            <circle cx={100} cy={350} r={5} fill="#ffffff" />
-                            <circle cx={700} cy={90} r={5} fill="#ffffff" />
-                            <circle cx={740} cy={160} r={5} fill="#ffffff" />
-                            <circle cx={720} cy={250} r={5} fill="#ffffff" />
-                            <circle cx={680} cy={340} r={5} fill="#ffffff" />
-                          </svg>
-                        </div>
+                      <div className="text-center text-white flex justify-center w-full">
+                        <img
+                          src="/FNOR1-f1ffd2c3-b580-444b-b099-98ab34dbb5ae@1024x768.png"
+                          alt="Industry Leading Security"
+                          className="w-full h-auto max-w-[380px] object-contain"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* AI-Powered IP Detection - Same Width as Combined Cards */}
             <motion.div
@@ -303,7 +244,7 @@ export default function Features() {
               <div className={styles.cards}>
                 <div
                   className={cn(
-                    "group border-transparent text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-0 p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] transition-all ease-in-out h-full",
+                    "group border-transparent text-card-foreground relative flex flex-col overflow-hidden rounded-xl border-0 p-6 py-24 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] transition-all ease-in-out h-full",
                     "hover:shadow-[0_0_30px_rgba(208,254,23,0.2)]",
                     styles.card,
                     styles.noTilt

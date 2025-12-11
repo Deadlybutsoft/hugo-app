@@ -30,7 +30,7 @@ export function BurnIntro({ onComplete }: { onComplete: () => void }) {
             const fontStyle = getComputedStyle(document.documentElement).getPropertyValue('--font-pixelify').trim();
             const fontFamily = fontStyle ? fontStyle.replace(/"/g, "") : "Arial";
 
-            textCtx.fillStyle = "#D0FE17" // Green background
+            textCtx.fillStyle = "#FFFFFF" // White background
             textCtx.fillRect(0, 0, textCanvas.width, textCanvas.height)
 
             textCtx.fillStyle = "black" // Black text
@@ -53,7 +53,7 @@ export function BurnIntro({ onComplete }: { onComplete: () => void }) {
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
 
-            gl.clearColor(0.81, 1.0, 0.09, 1.0) // Clear to #D0FE17 approx
+            gl.clearColor(1, 1, 1, 1) // Clear to white
             gl.clear(gl.COLOR_BUFFER_BIT)
         }
 

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 }
 
 import { ThemeProvider } from "@/components/theme-provider"
+import { Web3Provider } from "@/components/Web3Provider"
 
 export default function RootLayout({
   children,
@@ -34,7 +35,9 @@ html {
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <Web3Provider>
+            {children}
+          </Web3Provider>
         </ThemeProvider>
       </body>
     </html>

@@ -6,6 +6,7 @@ import GhostIconButton from "./GhostIconButton";
 import { useState, useEffect } from "react";
 
 import ThemeToggle from "./ThemeToggle"
+import WalletButton from "./WalletButton"
 
 export default function Header({ createNewChat, sidebarCollapsed, setSidebarOpen, theme, setTheme }) {
   const [isMounted, setIsMounted] = useState(false);
@@ -25,7 +26,8 @@ export default function Header({ createNewChat, sidebarCollapsed, setSidebarOpen
         </button>
       )}
       <Link href="/" className="text-xl font-bold tracking-tight ml-2">Hugo</Link>
-      <div className="ml-auto">
+      <div className="ml-auto flex items-center gap-2">
+        <WalletButton />
         <ThemeToggle theme={theme} setTheme={setTheme} />
       </div>
     </div>

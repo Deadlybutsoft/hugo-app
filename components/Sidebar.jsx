@@ -39,6 +39,8 @@ export default function Sidebar({
   sidebarCollapsed = false,
   setSidebarCollapsed = () => { },
   onDeleteConversation,
+  apiKey,
+  setApiKey,
 }) {
   const [isMobile, setIsMobile] = useState(false)
 
@@ -87,7 +89,7 @@ export default function Sidebar({
           </button>
 
           <div className="mt-auto mb-4">
-            <SettingsPopover>
+            <SettingsPopover apiKey={apiKey} setApiKey={setApiKey}>
               <button
                 className="rounded-xl p-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
                 title="Settings"
@@ -203,7 +205,7 @@ export default function Sidebar({
 
             <div className="mt-auto border-t border-zinc-200/60 px-3 py-3 dark:border-zinc-800">
               <div className="flex items-center justify-start">
-                <SettingsPopover>
+                <SettingsPopover apiKey={apiKey} setApiKey={setApiKey}>
                   <button className="inline-flex items-center gap-2 rounded-lg px-4 py-3 text-base hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800">
                     <Settings className="h-5 w-5" /> Settings
                   </button>

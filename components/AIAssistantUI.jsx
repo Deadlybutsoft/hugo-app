@@ -71,6 +71,18 @@ export default function AIAssistantUI() {
     } catch { }
   }, [sidebarCollapsed])
 
+  const [apiKey, setApiKey] = useState(() => {
+    try {
+      return typeof window !== "undefined" ? localStorage.getItem("google-gemini-api-key") || "" : ""
+    } catch { return "" }
+  })
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("google-gemini-api-key", apiKey)
+    } catch { }
+  }, [apiKey])
+
   const [conversations, setConversations] = useState(INITIAL_CONVERSATIONS)
   const [selectedId, setSelectedId] = useState(null)
   const [templates, setTemplates] = useState(INITIAL_TEMPLATES)
@@ -132,6 +144,9 @@ export default function AIAssistantUI() {
 
   function createNewChat() {
     const id = Math.random().toString(36).slice(2)
+    const welcomeMsgId = Math.random().toString(36).slice(2)
+
+    // Initial State: Empty Message
     const item = {
       id,
       title: "New Chat",
@@ -140,11 +155,47 @@ export default function AIAssistantUI() {
       preview: "Say hello to start...",
       pinned: false,
       folder: "Work Projects",
-      messages: [], // Ensure messages array is empty for new chats
+      messages: [
+        {
+          id: welcomeMsgId,
+          role: "assistant",
+          content: "", // Start empty
+          createdAt: new Date().toISOString(),
+        }
+      ],
     }
+
     setConversations((prev) => [item, ...prev])
     setSelectedId(id)
     setSidebarOpen(false)
+
+    // Trigger Typewriter Effect
+    const fullText = "Welcome to **Hugo**! 🧩\n\nI'm your AI assistant for the World's IP Blockchain. I can help you register your creative work (Images, Music, AI Models, etc.) on-chain in seconds.\n\n**What would you like to register today?**"
+
+    let currentIndex = 0;
+
+    // Clear any previous intervals if they exist (though this is a new function call scope)
+    // We need to keep a ref to the interval if we want to clear it on unmount, but for now this is fine for this specific feature
+
+    const interval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        const text = fullText.slice(0, currentIndex);
+
+        setConversations((prev) => prev.map(c => {
+          if (c.id !== id) return c;
+
+          const msgs = (c.messages || []).map(m =>
+            m.id === welcomeMsgId ? { ...m, content: text } : m
+          );
+
+          return { ...c, messages: msgs };
+        }));
+
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 20); // Adjust speed here (lower = faster)
   }
 
   function createFolder() {
@@ -201,7 +252,7 @@ export default function AIAssistantUI() {
     fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: messagesToSend }),
+      body: JSON.stringify({ messages: messagesToSend, apiKey }), // Pass user apiKey
     })
       .then(async (response) => {
         if (!response.ok) {
@@ -354,6 +405,8 @@ export default function AIAssistantUI() {
               setSelectedId(null)
             }
           }}
+          apiKey={apiKey}
+          setApiKey={setApiKey}
         />
 
         <main

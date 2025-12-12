@@ -124,7 +124,8 @@ const StyledWrapper = styled.div`
     justify-content: center;
     width: 48px;
     height: 48px;
-    background: #D0FE17;
+    background: linear-gradient(135deg, #E2FF78 0%, #D0FE17 40%, #A2C909 100%);
+    box-shadow: 0 4px 15px rgba(208, 254, 23, 0.3);
     border-radius: 50%;
     color: #000000;
     transition: all 0.5s ease;

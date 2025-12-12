@@ -6,16 +6,13 @@ import Message from "./Message"
 import Composer from "./Composer"
 import { cls, timeAgo } from "./utils"
 import styles from "./HugoShine.module.css"
+import loaderStyles from "./ThinkingLoader.module.css"
 
 function ThinkingMessage({ onPause }) {
   return (
     <Message role="assistant">
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-1">
-          <div className="h-2 w-2 animate-bounce rounded-full bg-zinc-400 [animation-delay:-0.3s]"></div>
-          <div className="h-2 w-2 animate-bounce rounded-full bg-zinc-400 [animation-delay:-0.15s]"></div>
-          <div className="h-2 w-2 animate-bounce rounded-full bg-zinc-400"></div>
-        </div>
+        <div className={`${loaderStyles.loader} text-zinc-400`} />
         <span className="text-sm text-zinc-500">AI is thinking...</span>
         <button
           onClick={onPause}
@@ -27,6 +24,7 @@ function ThinkingMessage({ onPause }) {
     </Message>
   )
 }
+
 
 const ChatPane = forwardRef(function ChatPane(
   { conversation, onSend, onEditMessage, onResendMessage, isThinking, onPauseThinking },
@@ -125,8 +123,22 @@ const ChatPane = forwardRef(function ChatPane(
                   <Message role={m.role}>
                     {m.role === "assistant" ? (
                       <div
-                        className="whitespace-pre-wrap"
-                        dangerouslySetInnerHTML={{ __html: m.content.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold italic">$1</strong>') }}
+                        className="whitespace-pre-wrap text-[15px] leading-relaxed"
+                        dangerouslySetInnerHTML={{
+                          __html: m.content
+                            // Headers
+                            .replace(/^### (.*$)/gm, '<h3 class="text-lg font-bold mt-4 mb-2 text-foreground">$1</h3>')
+                            .replace(/^## (.*$)/gm, '<h2 class="text-xl font-bold mt-6 mb-3 text-foreground">$1</h2>')
+                            // Bold
+                            .replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold text-foreground">$1</strong>')
+                            // Links
+                            .replace(
+                              /\[([^\]]+)\]\(([^)]+)\)/g,
+                              '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-medium">$1</a>'
+                            )
+                            // List items (simple bullet points)
+                            .replace(/^\s*[-*]\s+(.*)$/gm, '<div class="flex items-start gap-2 my-1"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-zinc-400 shrink-0"></span><span>$1</span></div>')
+                        }}
                       />
                     ) : (
                       <div className="whitespace-pre-wrap">{m.content}</div>

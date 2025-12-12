@@ -256,8 +256,8 @@ export default function Features() {
                   }}
                 >
                   <div className={styles.cardContent}>
-                    <div className="flex flex-col gap-4 items-center text-center pt-6">
-                      <h3 className="text-6xl md:text-9xl leading-none font-bold tracking-tighter uppercase font-[family-name:var(--font-bricolage)]"></h3>
+                    <div className="flex flex-col gap-4 items-center text-center">
+                      <h3 className="text-3xl md:text-5xl leading-none font-bold tracking-tighter uppercase font-[family-name:var(--font-bricolage)]">Multi Format Registration</h3>
                     </div>
                     <div className="pointer-events-none flex grow items-center justify-center select-none relative">
                       <div
